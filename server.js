@@ -15,8 +15,6 @@ app.use('/youtubeVideo', youtubeVideoRouter
 mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true})
 const db = mongoose.connection
 db.error('error', (error) => console.error(error))
-db.once('open', () => console.log('Connected to database')).catch(function () {
-    console.log("Promise Rejected");
-  });
+db.once('open', () => console.log('Connected to database'))
 
 app.listen(27017, () =>  console.log('Server started'))
